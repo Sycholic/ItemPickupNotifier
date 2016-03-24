@@ -32,17 +32,17 @@ public class Main extends JavaPlugin implements Listener {
 	@EventHandler
 	private void onPickup(final PlayerPickupItemEvent e) {
 		final ItemMeta item = e.getItem().getItemStack().getItemMeta();
-		String name = CraftItemStack.asNMSCopy(e.getItem().getItemStack()).getItem().j(CraftItemStack.asNMSCopy(e.getItem().getItemStack()));
-		String finalname = LocaleI18n.get(name + ".name");
+		String NMSName = CraftItemStack.asNMSCopy(e.getItem().getItemStack()).getItem().getName() + ".name";
+		String name = LocaleI18n.get(NMSName);
 		
-		if (item.hasDisplayName()) finalname = item.getDisplayName();
+		if (item.hasDisplayName()) name = item.getDisplayName();
 		
 		if (getConfig().getBoolean("SendMessage")) {
-			actionBar(e.getPlayer(), getConfig().getString("Message"), finalname);
+			actionBar(e.getPlayer(), getConfig().getString("Message"), name);
 		}
 	}
 	
-	private void broadcast(String message) {
+	private void broadcast(final String message) {
 		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', message));
 	}
 	
