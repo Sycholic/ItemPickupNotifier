@@ -14,6 +14,7 @@ import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
 import net.minecraft.server.v1_9_R1.IChatBaseComponent;
 import net.minecraft.server.v1_9_R1.PacketPlayOutChat;
 import net.minecraft.server.v1_9_R1.IChatBaseComponent.ChatSerializer;
+import net.minecraft.server.v1_9_R1.LocaleI18n;
 
 public class Main extends JavaPlugin implements Listener {
 	
@@ -24,9 +25,9 @@ public class Main extends JavaPlugin implements Listener {
 	}
 	
 	@EventHandler
-	private void onPickup(PlayerPickupItemEvent e) {
-		ItemMeta item = e.getItem().getItemStack().getItemMeta();
-		String name = getConfig().getString("DefaultName");
+	private void onPickup(final PlayerPickupItemEvent e) {
+		final ItemMeta item = e.getItem().getItemStack().getItemMeta();
+		String name = LocaleI18n.get(e.getItem().getName() + ".name");
 		
 		if (item.hasDisplayName()) name = item.getDisplayName();
 		
@@ -35,9 +36,7 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 	
-	private void actionBar(Player p, String message, String replaceWith) {
-		
-		
+	private void actionBar(final Player p, String message, final String replaceWith) {
 		message = ChatColor.translateAlternateColorCodes('&', message).replace("{ITEM}", replaceWith);
 		IChatBaseComponent chatBase = ChatSerializer.a("{\"text\": \"" + message + "\"}");
 		
