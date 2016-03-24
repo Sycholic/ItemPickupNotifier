@@ -33,8 +33,7 @@ public class Main extends JavaPlugin implements Listener {
 	private void onPickup(final PlayerPickupItemEvent e) {
 		final ItemMeta item = e.getItem().getItemStack().getItemMeta();
 		String name = CraftItemStack.asNMSCopy(e.getItem().getItemStack()).getItem().j(CraftItemStack.asNMSCopy(e.getItem().getItemStack()));
-		String fullname = name + ".name";
-		String finalname = LocaleI18n.get(fullname);
+		String finalname = LocaleI18n.get(name + ".name");
 		
 		if (item.hasDisplayName()) finalname = item.getDisplayName();
 		
