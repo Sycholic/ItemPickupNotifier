@@ -1,0 +1,7 @@
+name: ItemPickupNotifier
+version: 1.0
+main: me.boomboompower.itempickupnotifier.Main
+author: boomboompower
+description: Notifies the player when they pickup an item!
+load: STARTUP
+website: boomboompower.weebly.com

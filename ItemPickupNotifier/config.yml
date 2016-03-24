@@ -1,0 +1,8 @@
+# Do you want to send an actionbar when they pick it up?
+SendMessage: true
+
+# What do you want the message format to be? (Supports color codes)
+Message: '&3&lITEM &b> &7You picked up &9{ITEM}&7!'
+
+# If the item is not named, what do you want the message to be?
+DefaultName: 'an item!'
